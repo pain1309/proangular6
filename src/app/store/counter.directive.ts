@@ -20,7 +20,7 @@ export class CounterDirective {
       this.container.createEmbeddedView(this.template, new CounterDirectiveContext(i + 1));
     }
   }
-}
+} 
 
 class CounterDirectiveContext {
   constructor(public $implicit: any) {

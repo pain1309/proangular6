@@ -14,7 +14,7 @@ import { StoreFirstGuard } from "./store-first.guard";
 @NgModule({
   // tells Angular that it should load the root component
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   //  tells Angular that the root component is the AppModule class
   imports: [BrowserModule, StoreModule,
@@ -22,6 +22,7 @@ import { StoreFirstGuard } from "./store-first.guard";
       { path: "store", component: StoreComponent, canActivate: [StoreFirstGuard]},
       { path: "cart", component: CartDetailComponent, canActivate: [StoreFirstGuard]},
       { path: "checkout", component: CheckoutComponent, canActivate: [StoreFirstGuard]},
+      { path: "admin", loadChildren: "./admin/admin.module#AdminModule"},
       { path: "**", redirectTo: "/store" }
     ])],
   //  tells Angular about the shared objects used by the application
