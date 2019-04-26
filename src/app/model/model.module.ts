@@ -7,7 +7,7 @@ import { Order } from "./order.model";
 import { OrderRepository } from "./order.repository";
 import { RestDataSource } from "./rest.datasource";
 import { HttpClientModule } from "@angular/common/http";
-
+import { AuthService } from "./auth.service";
 
 // create feature module
 @NgModule({
@@ -17,7 +17,9 @@ import { HttpClientModule } from "@angular/common/http";
     HttpClientModule
   ],
   // tell angular which class should be used as services for the dependency injection feature
-  providers: [ProductRepository, Cart, Order, OrderRepository, 
-    { provide: StaticDataSource, useClass: RestDataSource}]
+  providers: [ProductRepository, Cart, Order, OrderRepository,
+    { provide: StaticDataSource, useClass: RestDataSource },
+    RestDataSource, AuthService]
+   
 })
 export class ModelModule { }
