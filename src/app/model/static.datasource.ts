@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Product } from './product.model'
 import { Observable, from } from 'rxjs';
+import { Order } from './order.model';
 
 // tell Angular that this class will be used as a service
 @Injectable()
@@ -26,5 +27,9 @@ export class StaticDataSource {
     
     getProducts(): Observable<Product[]> {
         return from([this.products])
+    }
+    saveOrder(order: Order): Observable<Order> {
+        console.log(JSON.stringify(order));
+        return from([order]);
     }
 }
